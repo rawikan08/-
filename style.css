@@ -8,7 +8,8 @@ body {
 }
 
 header {
-    background: #4CAF50;
+    /* เปลี่ยนจากสีเขียวเป็นสีฟ้า (Deep Sky Blue) */
+    background: #008CBA; 
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -28,4 +29,6 @@ section {
     max-width: 800px;
     background: white;
     border-radius: 8px;
+    /* เพิ่มลูกเล่นเงาจางๆ (Optional) ให้กล่องข้อความดูมีมิติขึ้น */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
 }
