@@ -8,104 +8,116 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chochy&family=Itim&family=Mali:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- โซนปรับแต่งสไตล์พาสเทล เน้นสีฟ้า-ชมพู --- */
+        /* --- โซนดีไซน์สีฟ้าสดใส มินิมอลแบบมีลูกเล่น --- */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Mali', 'Itim', cursive, sans-serif;
-            /* ปรับพื้นหลังให้เน้นสีฟ้าอ่อนเป็นหลัก ตัดด้วยชมพูบางๆ ตรงมุม */
-            background: linear-gradient(135deg, #E0F2FE, #E0F2FE, #EFF6FF, #FFE4E6);
-            color: #334155;
+            /* พื้นหลังไล่เฉดสีฟ้าสดใสสไตล์ซัมเมอร์ ตัดด้วยสีครีมและชมพูพาสเทลบางๆ */
+            background: linear-gradient(135deg, #BAE6FD, #E0F2FE, #F0F9FF, #FFE4E6);
+            color: #1E293B;
             min-height: 100vh;
             line-height: 1.8;
-            padding: 20px;
+            padding: 30px 20px;
             box-sizing: border-box;
         }
 
         /* ตกแต่งกล่องเนื้อหาหลัก (Container) */
         header, section, footer {
             max-width: 750px;
-            margin: 25px auto;
-            padding: 25px;
-            /* พื้นหลังสีขาวใสเคลือบฟ้าเบาๆ */
-            background: rgba(255, 255, 255, 0.8); 
+            margin: 30px auto;
+            padding: 30px;
+            /* พื้นหลังสีขาวใสเคลือบเงาเด่นชัดขึ้น */
+            background: rgba(255, 255, 255, 0.85); 
             border-radius: 24px;
-            /* ปรับเงาให้เป็นโทนฟ้าใสๆ */
-            box-shadow: 0 8px 24px rgba(125, 211, 252, 0.25); 
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* เงาสีฟ้าสดใสแบบมีมิติ */
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15); 
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            /* ลูกเล่นการเคลื่อนไหวเวลาเปลี่ยนสถานะ */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* เอฟเฟกต์ลอยตัวเวลานำเมาส์ไปชี้ */
+        /* ลูกเล่นดึ๋งๆ ขยายตัวเล็กน้อยเวลานำเมาส์ไปชี้ */
         section:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(125, 211, 252, 0.35);
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.25);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         /* ส่วนหัวเว็บไซต์ */
         header {
             text-align: center;
-            background: linear-gradient(135deg, #FFFFFF, #F0F9FF);
-            border: 3px dashed #7DD3FC; /* เปลี่ยนเป็นเส้นประสีฟ้า */
+            background: linear-gradient(135deg, #FFFFFF, #E0F2FE);
+            border: 3px dashed #0EA5E9; /* เส้นประสีฟ้าสดใส */
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
-            color: #0284C7; /* ชื่อเด่นด้วยสีฟ้าเข้มสดใส */
+            color: #0284C7; /* สีฟ้าบอนไดบลูสุดสดใส */
             margin: 0 0 10px 0;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 0px #FFFFFF;
+            font-size: 2.6rem;
+            text-shadow: 3px 3px 0px #FFFFFF;
+            letter-spacing: 1px;
         }
 
         header p {
-            color: #FF8DA1; /* คำโปรยใช้สีชมพูหวานๆ */
+            color: #EC4899; /* ตัดรสชาติความสดใสด้วยสีชมพูมาเจนต้าสุดน่ารัก */
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
         }
 
-        /* หัวข้อประจำ Section */
+        /* หัวข้อประจำแต่ละ Section */
         h2 {
-            color: #0284C7; /* สีฟ้าสดใส */
-            font-size: 1.6rem;
+            color: #0369A1;
+            font-size: 1.65rem;
             margin-top: 0;
             display: inline-block;
-            border-bottom: 4px dotted #7DD3FC; /* เส้นใต้จุดสีฟ้า */
-            padding-bottom: 5px;
+            border-bottom: 4px dotted #38BDF8; /* เส้นใต้จุดสีฟ้าเทอร์ควอยซ์ */
+            padding-bottom: 6px;
         }
 
         /* การ์ดกล่องแสดงผลงาน */
         .project {
             background: #FFFFFF;
-            padding: 18px;
-            margin-bottom: 18px;
-            border-radius: 18px;
-            border-left: 6px solid #7DD3FC; /* เน้นแถบสีฟ้าอ่อน */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
-            transition: all 0.2s ease;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border-left: 6px solid #0EA5E9; /* แถบสีฟ้าสดใสหนาด้านซ้าย */
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+            transition: all 0.3s ease;
         }
 
-        /* สลับสีขอบการ์ดชิ้นที่สองให้เป็นสีชมพูเพื่อความน่ารัก */
+        /* เพิ่มลูกเล่นให้การ์ดผลงานขยับและเปลี่ยนสีขอบเมื่อเอาเมาส์ชี้ */
+        .project:hover {
+            transform: translateX(6px);
+            border-left-color: #EC4899; /* เปลี่ยนเป็นสีชมพูหวานๆ */
+            background: #F8FAFC;
+        }
+
+        /* สลับสีขอบการ์ดชิ้นที่สองให้มีลูกเล่นสลับสีสัน */
         .project:nth-child(3) {
-            border-left-color: #FFB6C1; 
+            border-left-color: #38BDF8; 
         }
 
         .project h3 {
             margin: 0 0 8px 0;
-            color: #0369A1;
-            font-size: 1.25rem;
+            color: #0284C7;
+            font-size: 1.3rem;
         }
 
         .project p {
             margin: 0;
-            color: #64748B;
+            color: #475569;
             font-size: 1rem;
         }
 
-        /* รายการทักษะและผลงาน */
+        /* โซนรายการแบบจุด (List) */
         ul {
             list-style: none;
             padding-left: 5px;
@@ -114,27 +126,50 @@
 
         li {
             position: relative;
-            padding-left: 30px;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
+            padding-left: 32px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
         }
 
-        /* ไอคอนหน้าลิสต์ดนตรี */
+        li:hover {
+            color: #0284C7;
+        }
+
+        /* เอฟเฟกต์ไอคอนหมุนๆ ดุ๊กดิ๊กด้านหน้ารายการ */
+        li::before {
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        li:hover::before {
+            transform: rotate(20deg) scale(1.2);
+        }
+
         #skills li::before {
             content: "🎵"; 
-            position: absolute;
-            left: 0;
-            top: -2px;
-            font-size: 1.1rem;
         }
 
-        /* ไอคอนหน้าลิสต์คอมพิวเตอร์ */
         #computer-works li::before {
-            content: "🩵"; /* หัวใจสีฟ้าเข้าธีม */
-            position: absolute;
-            left: 0;
-            top: -2px;
-            font-size: 1.1rem;
+            content: "⚡"; /* สายฟ้าสุดไฮเทคและสดใส */
+        }
+
+        /* จัดแต่งรูปภาพอินโฟกราฟิกให้มินิมอลและสวยงาม */
+        .img-container {
+            margin: 15px 0 20px 32px;
+            display: inline-block;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+            border: 3px solid #FFFFFF;
+            transition: transform 0.3s ease;
+        }
+
+        .img-container:hover {
+            transform: scale(1.04) rotate(-1deg);
         }
 
         /* ส่วนท้ายเว็บไซต์ */
@@ -142,36 +177,35 @@
             text-align: center;
             background: #FFFFFF;
             border: 2px solid #E2E8F0;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         footer p {
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
-        /* ลิงก์อีเมลแบบปุ่มสีฟ้าพาสเทล */
+        /* ปุ่มติดต่ออีเมลสีฟ้าสดใสมีเอฟเฟกต์สะท้อน */
         footer a {
             color: #FFFFFF;
-            background: #38BDF8; /* พื้นหลังปุ่มสีฟ้า */
-            padding: 6px 16px;
-            border-radius: 20px;
+            background: #0EA5E9; 
+            padding: 8px 20px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
         }
 
-        /* เมาส์ชี้แล้วปุ่มจะเปลี่ยนเป็นสีชมพู */
         footer a:hover {
-            background: #FF8DA1; 
-            box-shadow: 0 4px 12px rgba(255, 141, 161, 0.4);
-            transform: scale(1.05);
+            background: #EC4899; /* เปลี่ยนเป็นสีชมพูสดใสเวลามีปฏิสัมพันธ์ */
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+            transform: translateY(-2px);
         }
 
         #year {
             font-weight: bold;
-            color: #38BDF8;
+            color: #0EA5E9;
         }
     </style>
 </head>
@@ -220,7 +254,9 @@
         <h2>ผลงานวิชาคอมพิวเตอร์ 💻</h2>
         <ul>
             <li>ผลงานที่ 1: อินโฟกราฟิก (Infographic)</li>
-            <img src="280.png" width="35%">
+            <div class="img-container">
+                <img src="280.png" width="220px" alt="Infographic" style="display: block;">
+            </div>
             <li>ผลงานที่ 2: [ใส่ชื่อผลงานเพิ่มเติมได้ที่นี่]</li>
             <li>ผลงานที่ 3: [ใส่ชื่อผลงานเพิ่มเติมได้ที่นี่]</li>
         </ul>
