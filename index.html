@@ -4,70 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="เว็บไซต์แสดงผลงานและทักษะของ Rawikan">
-    <title>ความภาคภูมิใจของ RAWIKAN</title>
+    <title>ความภาคภูมิใจของ RAWIKAN 🦄</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- แอนิเมชันลอยดึ๋งๆ แบบอัตโนมัติ --- */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
+        /* --- แอนิเมชันหลัก --- */
+        
+        /* ฟองสบู่ลอยลง */
+        @keyframes bubblesDrop {
+            0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+            10% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(100vh) scale(1.2); opacity: 0; }
         }
 
+        /* กล่องเนื้อหาลอยดึ๋งๆ */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.5deg); }
+        }
+
+        /* พื้นหลังไล่เฉดสีขยับ */
+        @keyframes gradMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- สไตล์พื้นฐาน --- */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Mali', 'Itim', cursive, sans-serif;
-            /* พื้นหลังไล่สีจากฟ้าเข้มสดใส -> ฟ้าอ่อน -> ขาวละมุน */
-            background: linear-gradient(135deg, #0284C7, #0EA5E9, #38BDF8, #E0F2FE, #F0F9FF);
+            /* พื้นหลังหลัก: ม่วงสดใสค่อยๆ เป็นสีฟ้า */
+            background: linear-gradient(135deg, #a78bfa, #818cf8, #60a5fa, #93c5fd);
+            background-size: 400% 400%;
+            animation: gradMove 10s ease infinite; /* พื้นหลังขยับช้าๆ */
             background-attachment: fixed;
-            color: #0F172A;
+            color: #1e1b4b;
             min-height: 100vh;
             line-height: 1.8;
             padding: 40px 20px;
             box-sizing: border-box;
+            position: relative; /* สำหรับฟองสบู่ */
+            overflow-x: hidden; /* กันฟองสบู่หลุดเฟรม */
         }
 
-        /* ตกแต่งกล่องเนื้อหาหลัก (Container) */
+        /* ฟองสบู่พื้นหลัง */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            bottom: -10vh;
+            animation: bubblesDrop linear infinite;
+            pointer-events: none; /* กดไม่โดนเนื้อหา */
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) inset;
+        }
+
+        /* --- กล่องเนื้อหาหลัก (Container) --- */
         header, section, footer {
             max-width: 750px;
             margin: 35px auto;
             padding: 35px;
-            /* พื้นหลังขาวใส Glassmorphism เนียนๆ */
-            background: rgba(255, 255, 255, 0.88); 
-            border-radius: 30px; /* มนกลมแบบมินิมอล */
-            /* เงาแบบนุ่มลึก มีมิติสไตล์เว็บสมัยใหม่ */
-            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2); 
-            backdrop-filter: blur(16px);
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* พื้นหลังขาวใส Glassmorphism */
+            background: rgba(255, 255, 255, 0.85); 
+            border-radius: 30px; 
+            box-shadow: 0 10px 30px rgba(129, 140, 248, 0.2); 
+            backdrop-filter: blur(15px);
+            border: 3px solid #818cf8; /* ขอบสีม่วงอ่อนสดใส */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: float 6s ease-in-out infinite; /* ลอยอัตโนมัติ */
+            cursor: pointer; /* แสดงว่าเป็นสิ่งที่กดได้ */
         }
 
-        /* เอฟเฟกต์ลอยเด่นและเรืองแสงออร่าเวลาเอาเมาส์ชี้ */
-        section:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.35);
-            background: rgba(255, 255, 255, 0.98);
+        /* --- ลูกเล่นเวลากด (Active Effect) --- */
+        header:active, section:active, footer:active {
+            transform: scale(0.96) translateY(5px); /* ยุบตัวลงเมื่อกด */
+            box-shadow: 0 5px 15px rgba(129, 140, 248, 0.1);
+            background: rgba(255, 255, 255, 0.7);
         }
 
-        /* ส่วนหัวเว็บไซต์สุดว้าว */
+        /* เอฟเฟกต์ลอยโดดเด่นเมื่อ Hover */
+        header:hover, section:hover, footer:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+            border-color: #60a5fa; /* เปลี่ยนขอบเป็นสีฟ้าเมื่อ Hover */
+        }
+
+        /* --- ส่วนหัวเว็บไซต์ --- */
         header {
             text-align: center;
-            background: linear-gradient(135deg, #FFFFFF, #E0F2FE, #BAE6FD);
-            border: 3px solid #0284C7;
-            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25);
-            /* ใส่แอนิเมชันลอยขึ้นลงให้หัวเว็บดูมีชีวิตชีวา */
-            animation: float 4s ease-in-out infinite; 
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(224, 231, 255, 0.9));
+            border-style: solid;
+            animation: float 5s ease-in-out infinite;
         }
 
         header h1 {
-            background: linear-gradient(45deg, #0369A1, #0EA5E9);
+            /* ตัวหนังสือไล่สี ม่วงเข้ม -> ฟ้าเข้ม */
+            background: linear-gradient(45deg, #7c3aed, #2563eb);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; /* ตัวหนังสือไล่สีฟ้าเข้มสดใส */
+            -webkit-text-fill-color: transparent;
             margin: 0 0 10px 0;
             font-size: 2.8rem;
             font-weight: 600;
@@ -75,63 +115,66 @@
         }
 
         header p {
-            color: #0284C7;
+            color: #6d28d9; /* สีม่วงเข้ม */
             margin: 0;
             font-size: 1.3rem;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
 
-        /* หัวข้อประจำแต่ละ Section */
+        /* --- หัวข้อประจำแต่ละ Section --- */
         h2 {
-            color: #0369A1;
+            color: #5b21b6; /* สีม่วง */
             font-size: 1.7rem;
             margin-top: 0;
             display: inline-block;
-            border-bottom: 4px solid #38BDF8; /* ขีดเส้นใต้หนานุ่มสีฟ้า */
-            border-radius: 2px;
+            border-bottom: 4px solid #60a5fa; /* ขีดใต้สีฟ้าอ่อน */
+            border-radius: 4px;
             padding-bottom: 4px;
+            text-shadow: 1px 1px 0px white;
         }
 
-        /* การ์ดกล่องแสดงผลงาน */
+        /* --- การ์ดกล่องแสดงผลงาน --- */
         .project {
-            background: linear-gradient(135deg, #FFFFFF, #F8FAFC);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 243, 255, 0.9));
             padding: 22px;
             margin-bottom: 20px;
             border-radius: 20px;
-            /* แถบสีฟ้าเข้มไล่เฉดอ่อนลงมาด้านซ้าย */
-            border-left: 6px solid #0284C7; 
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.05);
+            border-left: 6px solid #818cf8; /* ขอบด้านซ้ายสีม่วงอ่อน */
+            box-shadow: 0 4px 15px rgba(129, 140, 248, 0.05);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* ลูกเล่นขยับขยายและเปลี่ยนเฉดการ์ดเวลา Hover */
-        .project:hover {
-            transform: translateX(8px);
-            border-left-color: #38BDF8; /* เปลี่ยนเป็นฟ้าสว่าง */
-            background: linear-gradient(135deg, #F0F9FF, #FFFFFF);
-            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.1);
+        /* ลูกเล่นขยับเวลากดที่การ์ดผลงาน */
+        .project:active {
+            transform: scale(0.97) translateX(-5px);
+            background: rgba(245, 243, 255, 0.7);
         }
 
-        /* ดีไซน์เฉพาะตัวให้การ์ดชิ้นสุดท้ายเด่นขึ้น */
+        .project:hover {
+            transform: translateX(8px);
+            border-left-color: #60a5fa; /* เปลี่ยนขอบเป็นสีฟ้า */
+            background: linear-gradient(135deg, rgba(239, 246, 255, 0.9), rgba(255, 255, 255, 0.9));
+            box-shadow: 0 6px 20px rgba(96, 165, 250, 0.1);
+        }
+
         .project:last-child {
             margin-bottom: 0;
-            border-left-color: #0EA5E9;
         }
 
         .project h3 {
             margin: 0 0 8px 0;
-            color: #0284C7;
+            color: #6d28d9;
             font-size: 1.35rem;
         }
 
         .project p {
             margin: 0;
-            color: #475569;
+            color: #4c4f69;
             font-size: 1rem;
         }
 
-        /* จัดสไตล์กล่องรายการให้คลีนสะอาดตา */
+        /* --- รายการแบบลิสต์ (List Style) --- */
         ul {
             list-style: none;
             padding-left: 5px;
@@ -147,11 +190,11 @@
         }
 
         li:hover {
-            color: #0284C7;
+            color: #7c3aed; /* สีม่วงสดใส */
             transform: translateX(4px);
         }
 
-        /* ตกแต่งไอคอนหน้าลิสต์ให้หมุนดุ๊กดิ๊กเมื่อ Hover */
+        /* ตกแต่งไอคอนหน้าลิสต์ให้หมุนดุ๊กดิ๊กเวลากดหรือHover */
         li::before {
             position: absolute;
             left: 0;
@@ -160,86 +203,108 @@
             transition: transform 0.3s ease;
         }
         
+        li:active::before {
+            transform: scale(1.3) rotate(-15deg);
+        }
+
         li:hover::before {
-            transform: scale(1.25) rotate(15deg);
+            transform: scale(1.1) rotate(15deg);
         }
 
         #skills li::before {
-            content: "☁️"; /* เปลี่ยนหัวข้อลิสต์เป็นก้อนเมฆปุกปุย */
+            content: "🫧"; /* เปลี่ยนไอคอนเป็นฟองสบู่สุดมินิมอล */
         }
 
         #computer-works li::before {
-            content: "✨"; /* เปลี่ยนหัวข้อลิสต์เป็นประกายวิบวับ */
+            content: "🦋"; /* เปลี่ยนไอคอนเป็นผีเสื้อแสนสวย */
         }
 
-        /* ตกแต่งกรอบภาพอินโฟกราฟิกสไตล์โพลารอยด์สุดเก๋ */
+        /* --- กรอบภาพอินโฟกราฟิกสไตล์โพลารอยด์ --- */
         .img-container {
             margin: 20px 0 25px 35px;
             display: inline-block;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.25);
-            border: 6px solid #FFFFFF; /* กรอบขาวหนาดูมินิมอลแพงๆ */
+            box-shadow: 0 10px 25px rgba(129, 140, 248, 0.25);
+            border: 6px solid #FFFFFF; 
             transition: all 0.3s ease;
         }
 
-        .img-container:hover {
-            transform: scale(1.06) rotate(2deg);
-            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.35);
+        .img-container:active {
+            transform: scale(0.9);
+            box-shadow: 0 5px 15px rgba(129, 140, 248, 0.1);
         }
 
-        /* ส่วนท้ายเว็บไซต์ */
+        .img-container:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(96, 165, 250, 0.35);
+        }
+
+        /* --- ส่วนท้ายเว็บไซต์ --- */
         footer {
             text-align: center;
             background: #FFFFFF;
-            border: 2px solid #E2E8F0;
+            border: 3px solid #818cf8;
             font-size: 1rem;
-            box-shadow: 0 -5px 25px rgba(2, 132, 199, 0.05);
+            box-shadow: 0 -5px 25px rgba(129, 140, 248, 0.05);
+            animation: float 7s ease-in-out infinite;
         }
 
         footer p {
             margin: 10px 0;
         }
 
-        /* ปุ่มติดต่อแบบ Capsule สไตล์มินิมอลหรู */
+        /* ปุ่มติดต่อแบบ Capsule สไตล์น่ารักมินิมอล */
         footer a {
             color: #FFFFFF;
-            background: linear-gradient(45deg, #0284C7, #38BDF8); /* ปุ่มไล่สีฟ้าสวยงาม */
+            /* ปุ่มไล่สี ม่วงอ่อน -> ฟ้าอ่อน */
+            background: linear-gradient(45deg, #818cf8, #60a5fa); 
             padding: 10px 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
+            border: 2px solid white;
+        }
+
+        footer a:active {
+            transform: scale(0.9);
+            background: linear-gradient(45deg, #60a5fa, #818cf8); /* สลับสีเวลากด */
         }
 
         footer a:hover {
-            background: linear-gradient(45deg, #38BDF8, #0284C7);
-            box-shadow: 0 8px 25px rgba(2, 132, 199, 0.6);
-            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.5);
+            transform: translateY(-3px) scale(1.02);
         }
 
         #year {
             font-weight: bold;
-            color: #0284C7;
+            color: #6d28d9;
         }
     </style>
 </head>
 <body>
 
+    <div class="bubble" style="left: 10%; width: 50px; height: 50px; animation-duration: 15s; animation-delay: 1s;"></div>
+    <div class="bubble" style="left: 30%; width: 80px; height: 80px; animation-duration: 18s; animation-delay: 3s;"></div>
+    <div class="bubble" style="left: 50%; width: 40px; height: 40px; animation-duration: 20s; animation-delay: 5s;"></div>
+    <div class="bubble" style="left: 70%; width: 70px; height: 70px; animation-duration: 12s; animation-delay: 0s;"></div>
+    <div class="bubble" style="left: 90%; width: 60px; height: 60px; animation-duration: 16s; animation-delay: 2s;"></div>
+
     <header>
-        <h1>สวัสดี! ฉันคือ RAWIKAN</h1>
-        <p>นี่คือผลงานและความภาคภูมิใจของฉัน 🩵☁️✨</p>
+        <h1>สวัสดี! ฉันคือ RAWIKAN 🦄</h1>
+        <p>นี่คือผลงานและความภาคภูมิใจของฉัน ✨🧸🫧🐳 </p>
     </header>
 
     <section id="about">
-        <h2>เกี่ยวกับฉัน 🎧🪞</h2>
+        <h2>เกี่ยวกับฉัน 🥞</h2>
         <p>ฉันคนที่ชื่นชอบดนตรี และหลงใหลในเสียงดนตรี ฉันภูมิใจในผลงานและทักษะที่ฉันพัฒนามาอย่างต่อเนื่อง เพื่อสร้างสรรค์โชว์ที่สนุกสนาน</p>
     </section>
 
     <section id="projects">
-        <h2>ผลงานของฉัน 🎸🎹</h2>
+        <h2>ผลงานของฉัน 🚀⭐️</h2>
 
         <div class="project">
             <h3>ผลงานการแสดงและประกวดวงดนตรี</h3>
@@ -258,7 +323,7 @@
     </section>
   
     <section id="skills">
-        <h2>ทักษะด้านดนตรีของฉัน 🎶🌟</h2>
+        <h2>ทักษะด้านดนตรีของฉัน 🎼🎹</h2>
         <ul>
             <li>การเล่นเครื่องดนตรีหลัก: คีย์บอร์ด (Keyboard / Piano)</li>
             <li>การเล่นเครื่องดนตรีรอง: กีตาร์</li>
@@ -268,7 +333,7 @@
     </section>
 
     <section id="computer-works">
-        <h2>ผลงานวิชาคอมพิวเตอร์ 💻🪄</h2>
+        <h2>ผลงานวิชาคอมพิวเตอร์ 💻💻</h2>
         <ul>
             <li>ผลงานที่ 1: อินโฟกราฟิก (Infographic)</li>
             <div class="img-container">
@@ -280,13 +345,44 @@
     </section>
 
     <footer>
-        <p>🛸 ติดต่อฉันได้ที่: 
+        <p>📬 ติดต่อฉันได้ที่: ✨💎🌻 </p>
+        <p>
             <a href="mailto:rawikan@example.com">rawikan@example.com</a>
         </p>
         <p>&copy; <span id="year"></span> RAWIKAN. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // สร้างฟองสบู่เพิ่มแบบสุ่มเพื่อให้ดูสวยงามและไม่ซ้ำกันครับ
+        function createBubbles() {
+            const body = document.querySelector('body');
+            const bubbleCount = 10; // จำนวนฟองสบู่เริ่มต้น
+
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // สุ่มตำแหน่ง ขนาด และเวลา
+                const size = Math.random() * 80 + 20; // 20px - 100px
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 10 + 10}s`; // 10s - 20s
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                
+                body.appendChild(bubble);
+            }
+        }
+        
+        // เรียกใช้ฟังก์ชัน
+        createBubbles();
+
+        // แสดงผลปีปัจจุบัน
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
 
 </body>
 </html>
