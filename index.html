@@ -49,4 +49,191 @@
         /* ส่วนหัวเว็บไซต์ */
         header {
             text-align: center;
-            background: linear-gradient(135deg, #FFFFFF, #F0
+            background: linear-gradient(135deg, #FFFFFF, #F0F9FF);
+            border: 3px dashed #7DD3FC; /* เปลี่ยนเป็นเส้นประสีฟ้า */
+        }
+
+        header h1 {
+            color: #0284C7; /* ชื่อเด่นด้วยสีฟ้าเข้มสดใส */
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 0px #FFFFFF;
+        }
+
+        header p {
+            color: #FF8DA1; /* คำโปรยใช้สีชมพูหวานๆ */
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* หัวข้อประจำ Section */
+        h2 {
+            color: #0284C7; /* สีฟ้าสดใส */
+            font-size: 1.6rem;
+            margin-top: 0;
+            display: inline-block;
+            border-bottom: 4px dotted #7DD3FC; /* เส้นใต้จุดสีฟ้า */
+            padding-bottom: 5px;
+        }
+
+        /* การ์ดกล่องแสดงผลงาน */
+        .project {
+            background: #FFFFFF;
+            padding: 18px;
+            margin-bottom: 18px;
+            border-radius: 18px;
+            border-left: 6px solid #7DD3FC; /* เน้นแถบสีฟ้าอ่อน */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+            transition: all 0.2s ease;
+        }
+
+        /* สลับสีขอบการ์ดชิ้นที่สองให้เป็นสีชมพูเพื่อความน่ารัก */
+        .project:nth-child(3) {
+            border-left-color: #FFB6C1; 
+        }
+
+        .project h3 {
+            margin: 0 0 8px 0;
+            color: #0369A1;
+            font-size: 1.25rem;
+        }
+
+        .project p {
+            margin: 0;
+            color: #64748B;
+            font-size: 1rem;
+        }
+
+        /* รายการทักษะและผลงาน */
+        ul {
+            list-style: none;
+            padding-left: 5px;
+            margin: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        /* ไอคอนหน้าลิสต์ดนตรี */
+        #skills li::before {
+            content: "🎵"; 
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.1rem;
+        }
+
+        /* ไอคอนหน้าลิสต์คอมพิวเตอร์ */
+        #computer-works li::before {
+            content: "🩵"; /* หัวใจสีฟ้าเข้าธีม */
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.1rem;
+        }
+
+        /* ส่วนท้ายเว็บไซต์ */
+        footer {
+            text-align: center;
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        /* ลิงก์อีเมลแบบปุ่มสีฟ้าพาสเทล */
+        footer a {
+            color: #FFFFFF;
+            background: #38BDF8; /* พื้นหลังปุ่มสีฟ้า */
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        /* เมาส์ชี้แล้วปุ่มจะเปลี่ยนเป็นสีชมพู */
+        footer a:hover {
+            background: #FF8DA1; 
+            box-shadow: 0 4px 12px rgba(255, 141, 161, 0.4);
+            transform: scale(1.05);
+        }
+
+        #year {
+            font-weight: bold;
+            color: #38BDF8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>สวัสดี! ฉันคือ RAWIKAN</h1>
+        <p>นี่คือผลงานและความภาคภูมิใจของฉัน 🧸✨</p>
+    </header>
+
+    <section id="about">
+        <h2>เกี่ยวกับฉัน 🥞</h2>
+        <p>ฉันคนที่ชื่นชอบดนตรี และหลงใหลในเสียงดนตรี ฉันภูมิใจในผลงานและทักษะที่ฉันพัฒนามาอย่างต่อเนื่อง เพื่อสร้างสรรค์โชว์ที่สนุกสนาน</p>
+    </section>
+
+    <section id="projects">
+        <h2>ผลงานของฉัน ⭐️</h2>
+
+        <div class="project">
+            <h3>ผลงานการแสดงและประกวดวงดนตรี</h3>
+            <p>เว็บไซต์นี้เป็นหนึ่งในผลงานที่ฉันสร้างขึ้นเพื่อแสดงความสามารถของฉัน</p>
+        </div>
+
+        <div class="project">
+            <h3>การประกวดการแข่งขันวงดนตรี (Band Competition)</h3>
+            <p>ผลงานการแสดงดนตรีสดในงานกิจกรรมของโรงเรียน</p>
+        </div>
+
+        <div class="project">
+            <h3>การแข่งขันศิลปหัตถกรรมนักเรียน และการแสดง Folk Song</h3>
+            <p>เข้าร่วมการประกวดแข่งขันวงดนตรีสตริงในงานศิลปหัตถกรรมนักเรียน และการแสดงดนตรีในแนว Folk Song</p>
+        </div>
+    </section>
+  
+    <section id="skills">
+        <h2>ทักษะด้านดนตรีของฉัน 🎹</h2>
+        <ul>
+            <li>การเล่นเครื่องดนตรีหลัก: คีย์บอร์ด (Keyboard / Piano)</li>
+            <li>การเล่นเครื่องดนตรีรอง: กีตาร์</li>
+            <li>การแกะเพลงและเรียบเรียงไลน์ดนตรีสำหรับวง (Song Arranging)</li>
+            <li>ทักษะการเล่นร่วมวงและการฟังเสียงประสาน (Band Ensemble)</li>
+        </ul>
+    </section>
+
+    <section id="computer-works">
+        <h2>ผลงานวิชาคอมพิวเตอร์ 💻</h2>
+        <ul>
+            <li>ผลงานที่ 1: อินโฟกราฟิก (Infographic)</li>
+            <img src="208.png" width="35%">
+            <li>ผลงานที่ 2: [ใส่ชื่อผลงานเพิ่มเติมได้ที่นี่]</li>
+            <li>ผลงานที่ 3: [ใส่ชื่อผลงานเพิ่มเติมได้ที่นี่]</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>📬 ติดต่อฉันได้ที่: 
+            <a href="mailto:rawikan@example.com">rawikan@example.com</a>
+        </p>
+        <p>&copy; <span id="year"></span> RAWIKAN. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
