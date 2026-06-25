@@ -11,104 +11,118 @@
     <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- โซนดีไซน์สีฟ้าสดใส มินิมอลแบบมีลูกเล่น --- */
+        /* --- แอนิเมชันลอยดึ๋งๆ แบบอัตโนมัติ --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: 'Mali', 'Itim', cursive, sans-serif;
-            /* พื้นหลังไล่เฉดสีฟ้าสดใสสไตล์ซัมเมอร์ ตัดด้วยสีครีมและชมพูพาสเทลบางๆ */
-            background: linear-gradient(135deg, #BAE6FD, #E0F2FE, #F0F9FF, #FFE4E6);
-            color: #1E293B;
+            /* พื้นหลังไล่สีจากฟ้าเข้มสดใส -> ฟ้าอ่อน -> ขาวละมุน */
+            background: linear-gradient(135deg, #0284C7, #0EA5E9, #38BDF8, #E0F2FE, #F0F9FF);
+            background-attachment: fixed;
+            color: #0F172A;
             min-height: 100vh;
             line-height: 1.8;
-            padding: 30px 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
         }
 
         /* ตกแต่งกล่องเนื้อหาหลัก (Container) */
         header, section, footer {
             max-width: 750px;
-            margin: 30px auto;
-            padding: 30px;
-            /* พื้นหลังสีขาวใสเคลือบเงาเด่นชัดขึ้น */
-            background: rgba(255, 255, 255, 0.85); 
-            border-radius: 24px;
-            /* เงาสีฟ้าสดใสแบบมีมิติ */
-            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15); 
-            backdrop-filter: blur(12px);
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            /* ลูกเล่นการเคลื่อนไหวเวลาเปลี่ยนสถานะ */
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: 35px auto;
+            padding: 35px;
+            /* พื้นหลังขาวใส Glassmorphism เนียนๆ */
+            background: rgba(255, 255, 255, 0.88); 
+            border-radius: 30px; /* มนกลมแบบมินิมอล */
+            /* เงาแบบนุ่มลึก มีมิติสไตล์เว็บสมัยใหม่ */
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2); 
+            backdrop-filter: blur(16px);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* ลูกเล่นดึ๋งๆ ขยายตัวเล็กน้อยเวลานำเมาส์ไปชี้ */
+        /* เอฟเฟกต์ลอยเด่นและเรืองแสงออร่าเวลาเอาเมาส์ชี้ */
         section:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.25);
-            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.35);
+            background: rgba(255, 255, 255, 0.98);
         }
 
-        /* ส่วนหัวเว็บไซต์ */
+        /* ส่วนหัวเว็บไซต์สุดว้าว */
         header {
             text-align: center;
-            background: linear-gradient(135deg, #FFFFFF, #E0F2FE);
-            border: 3px dashed #0EA5E9; /* เส้นประสีฟ้าสดใส */
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #FFFFFF, #E0F2FE, #BAE6FD);
+            border: 3px solid #0284C7;
+            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25);
+            /* ใส่แอนิเมชันลอยขึ้นลงให้หัวเว็บดูมีชีวิตชีวา */
+            animation: float 4s ease-in-out infinite; 
         }
 
         header h1 {
-            color: #0284C7; /* สีฟ้าบอนไดบลูสุดสดใส */
+            background: linear-gradient(45deg, #0369A1, #0EA5E9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; /* ตัวหนังสือไล่สีฟ้าเข้มสดใส */
             margin: 0 0 10px 0;
-            font-size: 2.6rem;
-            text-shadow: 3px 3px 0px #FFFFFF;
-            letter-spacing: 1px;
+            font-size: 2.8rem;
+            font-weight: 600;
+            filter: drop-shadow(2px 2px 0px rgba(255, 255, 255, 0.8));
         }
 
         header p {
-            color: #EC4899; /* ตัดรสชาติความสดใสด้วยสีชมพูมาเจนต้าสุดน่ารัก */
+            color: #0284C7;
             margin: 0;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* หัวข้อประจำแต่ละ Section */
         h2 {
             color: #0369A1;
-            font-size: 1.65rem;
+            font-size: 1.7rem;
             margin-top: 0;
             display: inline-block;
-            border-bottom: 4px dotted #38BDF8; /* เส้นใต้จุดสีฟ้าเทอร์ควอยซ์ */
-            padding-bottom: 6px;
+            border-bottom: 4px solid #38BDF8; /* ขีดเส้นใต้หนานุ่มสีฟ้า */
+            border-radius: 2px;
+            padding-bottom: 4px;
         }
 
         /* การ์ดกล่องแสดงผลงาน */
         .project {
-            background: #FFFFFF;
-            padding: 20px;
+            background: linear-gradient(135deg, #FFFFFF, #F8FAFC);
+            padding: 22px;
             margin-bottom: 20px;
             border-radius: 20px;
-            border-left: 6px solid #0EA5E9; /* แถบสีฟ้าสดใสหนาด้านซ้าย */
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-            transition: all 0.3s ease;
+            /* แถบสีฟ้าเข้มไล่เฉดอ่อนลงมาด้านซ้าย */
+            border-left: 6px solid #0284C7; 
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* เพิ่มลูกเล่นให้การ์ดผลงานขยับและเปลี่ยนสีขอบเมื่อเอาเมาส์ชี้ */
+        /* ลูกเล่นขยับขยายและเปลี่ยนเฉดการ์ดเวลา Hover */
         .project:hover {
-            transform: translateX(6px);
-            border-left-color: #EC4899; /* เปลี่ยนเป็นสีชมพูหวานๆ */
-            background: #F8FAFC;
+            transform: translateX(8px);
+            border-left-color: #38BDF8; /* เปลี่ยนเป็นฟ้าสว่าง */
+            background: linear-gradient(135deg, #F0F9FF, #FFFFFF);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.1);
         }
 
-        /* สลับสีขอบการ์ดชิ้นที่สองให้มีลูกเล่นสลับสีสัน */
-        .project:nth-child(3) {
-            border-left-color: #38BDF8; 
+        /* ดีไซน์เฉพาะตัวให้การ์ดชิ้นสุดท้ายเด่นขึ้น */
+        .project:last-child {
+            margin-bottom: 0;
+            border-left-color: #0EA5E9;
         }
 
         .project h3 {
             margin: 0 0 8px 0;
             color: #0284C7;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
         }
 
         .project p {
@@ -117,7 +131,7 @@
             font-size: 1rem;
         }
 
-        /* โซนรายการแบบจุด (List) */
+        /* จัดสไตล์กล่องรายการให้คลีนสะอาดตา */
         ul {
             list-style: none;
             padding-left: 5px;
@@ -126,50 +140,52 @@
 
         li {
             position: relative;
-            padding-left: 32px;
-            margin-bottom: 15px;
+            padding-left: 35px;
+            margin-bottom: 16px;
             font-size: 1.1rem;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         li:hover {
             color: #0284C7;
+            transform: translateX(4px);
         }
 
-        /* เอฟเฟกต์ไอคอนหมุนๆ ดุ๊กดิ๊กด้านหน้ารายการ */
+        /* ตกแต่งไอคอนหน้าลิสต์ให้หมุนดุ๊กดิ๊กเมื่อ Hover */
         li::before {
             position: absolute;
             left: 0;
-            top: -2px;
-            font-size: 1.2rem;
+            top: -1px;
+            font-size: 1.25rem;
             transition: transform 0.3s ease;
         }
         
         li:hover::before {
-            transform: rotate(20deg) scale(1.2);
+            transform: scale(1.25) rotate(15deg);
         }
 
         #skills li::before {
-            content: "🎵"; 
+            content: "☁️"; /* เปลี่ยนหัวข้อลิสต์เป็นก้อนเมฆปุกปุย */
         }
 
         #computer-works li::before {
-            content: "⚡"; /* สายฟ้าสุดไฮเทคและสดใส */
+            content: "✨"; /* เปลี่ยนหัวข้อลิสต์เป็นประกายวิบวับ */
         }
 
-        /* จัดแต่งรูปภาพอินโฟกราฟิกให้มินิมอลและสวยงาม */
+        /* ตกแต่งกรอบภาพอินโฟกราฟิกสไตล์โพลารอยด์สุดเก๋ */
         .img-container {
-            margin: 15px 0 20px 32px;
+            margin: 20px 0 25px 35px;
             display: inline-block;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
-            border: 3px solid #FFFFFF;
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.25);
+            border: 6px solid #FFFFFF; /* กรอบขาวหนาดูมินิมอลแพงๆ */
+            transition: all 0.3s ease;
         }
 
         .img-container:hover {
-            transform: scale(1.04) rotate(-1deg);
+            transform: scale(1.06) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.35);
         }
 
         /* ส่วนท้ายเว็บไซต์ */
@@ -178,34 +194,35 @@
             background: #FFFFFF;
             border: 2px solid #E2E8F0;
             font-size: 1rem;
+            box-shadow: 0 -5px 25px rgba(2, 132, 199, 0.05);
         }
 
         footer p {
             margin: 10px 0;
         }
 
-        /* ปุ่มติดต่ออีเมลสีฟ้าสดใสมีเอฟเฟกต์สะท้อน */
+        /* ปุ่มติดต่อแบบ Capsule สไตล์มินิมอลหรู */
         footer a {
             color: #FFFFFF;
-            background: #0EA5E9; 
-            padding: 8px 20px;
+            background: linear-gradient(45deg, #0284C7, #38BDF8); /* ปุ่มไล่สีฟ้าสวยงาม */
+            padding: 10px 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+            box-shadow: 0 5px 20px rgba(2, 132, 199, 0.4);
         }
 
         footer a:hover {
-            background: #EC4899; /* เปลี่ยนเป็นสีชมพูสดใสเวลามีปฏิสัมพันธ์ */
-            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
-            transform: translateY(-2px);
+            background: linear-gradient(45deg, #38BDF8, #0284C7);
+            box-shadow: 0 8px 25px rgba(2, 132, 199, 0.6);
+            transform: translateY(-3px);
         }
 
         #year {
             font-weight: bold;
-            color: #0EA5E9;
+            color: #0284C7;
         }
     </style>
 </head>
@@ -213,16 +230,16 @@
 
     <header>
         <h1>สวัสดี! ฉันคือ RAWIKAN</h1>
-        <p>นี่คือผลงานและความภาคภูมิใจของฉัน 🧸✨</p>
+        <p>นี่คือผลงานและความภาคภูมิใจของฉัน 🩵☁️✨</p>
     </header>
 
     <section id="about">
-        <h2>เกี่ยวกับฉัน 🥞</h2>
+        <h2>เกี่ยวกับฉัน 🎧🪞</h2>
         <p>ฉันคนที่ชื่นชอบดนตรี และหลงใหลในเสียงดนตรี ฉันภูมิใจในผลงานและทักษะที่ฉันพัฒนามาอย่างต่อเนื่อง เพื่อสร้างสรรค์โชว์ที่สนุกสนาน</p>
     </section>
 
     <section id="projects">
-        <h2>ผลงานของฉัน ⭐️</h2>
+        <h2>ผลงานของฉัน 🎸🎹</h2>
 
         <div class="project">
             <h3>ผลงานการแสดงและประกวดวงดนตรี</h3>
@@ -241,7 +258,7 @@
     </section>
   
     <section id="skills">
-        <h2>ทักษะด้านดนตรีของฉัน 🎹</h2>
+        <h2>ทักษะด้านดนตรีของฉัน 🎶🌟</h2>
         <ul>
             <li>การเล่นเครื่องดนตรีหลัก: คีย์บอร์ด (Keyboard / Piano)</li>
             <li>การเล่นเครื่องดนตรีรอง: กีตาร์</li>
@@ -251,7 +268,7 @@
     </section>
 
     <section id="computer-works">
-        <h2>ผลงานวิชาคอมพิวเตอร์ 💻</h2>
+        <h2>ผลงานวิชาคอมพิวเตอร์ 💻🪄</h2>
         <ul>
             <li>ผลงานที่ 1: อินโฟกราฟิก (Infographic)</li>
             <div class="img-container">
@@ -263,7 +280,7 @@
     </section>
 
     <footer>
-        <p>📬 ติดต่อฉันได้ที่: 
+        <p>🛸 ติดต่อฉันได้ที่: 
             <a href="mailto:rawikan@example.com">rawikan@example.com</a>
         </p>
         <p>&copy; <span id="year"></span> RAWIKAN. All rights reserved.</p>
