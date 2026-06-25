@@ -11,223 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Chochy&family=Itim&family=Mali:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- โซนปรับแต่งสไตล์พาสเทลสุดน่ารัก --- */
+        /* --- โซนปรับแต่งสไตล์พาสเทล เน้นสีฟ้า-ชมพู --- */
         body {
             margin: 0;
             padding: 0;
-            /* ใช้ฟอนต์ละมุนๆ อ่านง่ายและน่ารัก */
             font-family: 'Mali', 'Itim', cursive, sans-serif;
-            /* พื้นหลังไล่สี ฟ้าพาสเทล นมเย็น และชมพู溫 */
-            background: linear-gradient(135deg, #E0F2FE, #FFF1F2, #FFE4E6);
-            color: #4D4D4D;
+            /* ปรับพื้นหลังให้เน้นสีฟ้าอ่อนเป็นหลัก ตัดด้วยชมพูบางๆ ตรงมุม */
+            background: linear-gradient(135deg, #E0F2FE, #E0F2FE, #EFF6FF, #FFE4E6);
+            color: #334155;
             min-height: 100vh;
             line-height: 1.8;
             padding: 20px;
             box-sizing: border-box;
         }
 
-        /* ตกแต่งกล่องเนื้อหาหลัก (Container) ทุกส่วน */
+        /* ตกแต่งกล่องเนื้อหาหลัก (Container) */
         header, section, footer {
             max-width: 750px;
             margin: 25px auto;
             padding: 25px;
-            /* พื้นหลังสีขาวโปร่งแสงเหมือนแก้วฝ้า */
-            background: rgba(255, 255, 255, 0.75); 
-            border-radius: 24px; /* ขอบมนๆ นุ่มฟู */
-            box-shadow: 0 8px 24px rgba(255, 182, 193, 0.2); /* เงาสีชมพูบางๆ */
+            /* พื้นหลังสีขาวใสเคลือบฟ้าเบาๆ */
+            background: rgba(255, 255, 255, 0.8); 
+            border-radius: 24px;
+            /* ปรับเงาให้เป็นโทนฟ้าใสๆ */
+            box-shadow: 0 8px 24px rgba(125, 211, 252, 0.25); 
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* ใส่เอฟเฟกต์ดึ๋งๆ เวลารีมาส่องกล่อง */
+        /* เอฟเฟกต์ลอยตัวเวลานำเมาส์ไปชี้ */
         section:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(125, 211, 252, 0.35);
         }
 
         /* ส่วนหัวเว็บไซต์ */
         header {
             text-align: center;
-            background: linear-gradient(135deg, #FFFFFF, #FFF0F2);
-            border: 3px dashed #FFB6C1; /* เส้นประสีชมพู */
-        }
-
-        header h1 {
-            color: #FF6B8B; /* สีชมพูสตรอว์เบอร์รี่ */
-            margin: 0 0 10px 0;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 0px #FFF;
-        }
-
-        header p {
-            color: #64748B;
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        /* หัวข้อสีฟ้าพาสเทลประจำหัวข้อ */
-        h2 {
-            color: #38BDF8; /* สีฟ้าสกายบลู */
-            font-size: 1.6rem;
-            margin-top: 0;
-            display: inline-block;
-            border-bottom: 4px dotted #FFB6C1; /* เส้นใต้จุดๆ สีชมพู */
-            padding-bottom: 5px;
-        }
-
-        /* การ์ดกล่องแสดงผลงาน */
-        .project {
-            background: #FFFFFF;
-            padding: 18px;
-            margin-bottom: 18px;
-            border-radius: 18px;
-            border-left: 6px solid #7DD3FC; /* แถบสีฟ้าหนาๆ ด้านซ้าย */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-        }
-
-        .project:nth-child(odd) {
-            border-left-color: #FBBF24; /* สลับเป็นสีเหลืองพาสเทลเพื่อความกิ๊กเก๋ */
-        }
-        
-        .project:last-child {
-            margin-bottom: 0;
-            border-left-color: #F472B6; /* สลับเป็นสีชมพูเข้ม */
-        }
-
-        .project h3 {
-            margin: 0 0 8px 0;
-            color: #0284C7;
-            font-size: 1.25rem;
-        }
-
-        .project p {
-            margin: 0;
-            color: #64748B;
-            font-size: 1rem;
-        }
-
-        /* ตกแต่งรายการทักษะและผลงานคอมพิวเตอร์ */
-        ul {
-            list-style: none; /* เอาจุดดำแบบเดิมออก */
-            padding-left: 5px;
-            margin: 0;
-        }
-
-        li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
-
-        /* ใส่ไอคอนหัวใจสีชมพูพาสเทลหน้าลิสต์ */
-        li::before {
-            content: "🌸"; 
-            position: absolute;
-            left: 0;
-            top: -2px;
-            font-size: 1.1rem;
-        }
-
-        #computer-works li::before {
-            content: "💻"; /* เปลี่ยนไอคอนให้เข้ากับวิชาคอม */
-        }
-
-        /* ส่วนท้ายเว็บไซต์ */
-        footer {
-            text-align: center;
-            background: #FFFFFF;
-            border: 2px solid #E2E8F0;
-            font-size: 0.95rem;
-        }
-
-        footer p {
-            margin: 8px 0;
-        }
-
-        /* ลิงก์อีเมลแบบปุ่มปุ๊กปิ๊ก */
-        footer a {
-            color: #FFFFFF;
-            background: #FF8DA1;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(255, 141, 161, 0.3);
-        }
-
-        footer a:hover {
-            background: #38BDF8; /* ชี้แล้วเปลี่ยนเป็นสีฟ้า */
-            box-shadow: 0 4px 10px rgba(56, 189, 248, 0.3);
-            transform: scale(1.05);
-        }
-
-        #year {
-            font-weight: bold;
-            color: #FF6B8B;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>สวัสดี! ฉันคือ RAWIKAN</h1>
-        <p>นี่คือผลงานและความภาคภูมิใจของฉัน 🧸✨</p>
-    </header>
-
-    <section id="about">
-        <h2>เกี่ยวกับฉัน 🥞</h2>
-        <p>ฉันคนที่ชื่นชอบดนตรี และหลงใหลในเสียงดนตรี ฉันภูมิใจในผลงานและทักษะที่ฉันพัฒนามาอย่างต่อเนื่อง เพื่อสร้างสรรค์โชว์ที่สนุกสนาน</p>
-    </section>
-
-    <section id="projects">
-        <h2>ผลงานของฉัน ⭐️</h2>
-
-        <div class="project">
-            <h3>ผลงานการแสดงและประกวดวงดนตรี</h3>
-            <p>เว็บไซต์นี้เป็นหนึ่งในผลงานที่ฉันสร้างขึ้นเพื่อแสดงความสามารถของฉัน</p>
-        </div>
-
-        <div class="project">
-            <h3>การประกวดการแข่งขันวงดนตรี (Band Competition)</h3>
-            <p>ผลงานการแสดงดนตรีสดในงานกิจกรรมของโรงเรียน</p>
-        </div>
-
-        <div class="project">
-            <h3>การแข่งขันศิลปหัตถกรรมนักเรียน และการแสดง Folk Song</h3>
-            <p>เข้าร่วมการประกวดแข่งขันวงดนตรีสตริงในงานศิลปหัตถกรรมนักเรียน และการแสดงดนตรีในแนว Folk Song</p>
-        </div>
-    </section>
-  
-    <section id="skills">
-        <h2>ทักษะด้านดนตรีของฉัน 🎹</h2>
-        <ul>
-            <li>การเล่นเครื่องดนตรีหลัก: คีย์บอร์ด (Keyboard / Piano)</li>
-            <li>การเล่นเครื่องดนตรีรอง: กีตาร์</li>
-            <li>การแกะเพลงและเรียบเรียงไลน์ดนตรีสำหรับวง (Song Arranging)</li>
-            <li>ทักษะการเล่นร่วมวงและการฟังเสียงประสาน (Band Ensemble)</li>
-        </ul>
-    </section>
-
-    <section id="computer-works">
-        <h2>ผลงานวิชาคอมพิวเตอร์ 💘</h2>
-        <ul>
-            <li>ผลงานที่ 1: อินโฟกราฟิก (Infographic)</li>
-            <li>ผลงานที่ 2: [ใส่ชื่อผลงานเพิ่มเติมได้ที่นี่]</li>
-            <li>ผลงานที่ 3: [ใส่ชื่อผลงานเพิ่มเติมได้ที่นี่]</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>💌 ติดต่อฉันได้ที่: 
-            <a href="mailto:rawikan@example.com">rawikan@example.com</a>
-        </p>
-        <p>&copy; <span id="year"></span> RAWIKAN. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+            background: linear-gradient(135deg, #FFFFFF, #F0
